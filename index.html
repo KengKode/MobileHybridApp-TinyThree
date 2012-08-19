@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TinyThree</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script> 
+    <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta6/handlebars.min.js"></script>
+</head>
+<body>
+    
+<script type="text/x-handlebars-template" 
+        id="list-template">
+        {{#each items}}
+        <li><a href="#">{{name}}</a>
+            <span class="ui-li-count">{{age}}</span>
+        </li>
+        {{/each}}
+</script>
+
+<script type="text/x-handlebars-template" 
+        id="tweet-template">
+        <li>
+            <img src="{{profile_image_url}}" class="ui-li-thumb ui-li-aside" alt="{{text}}">      
+        </li>
+</script>
+
+<script type="text/x-handlebars-template" 
+        id="flickr-template">
+        <img src="http://a0.twimg.com/profile_images/651575553/twittergithub2.png" style = "width:120px; height:120px;"> 
+</script>
+
+<script type="text/x-handlebars-template" 
+        id="weather-template">
+        <li>
+            <img src="{{iconUrl}}" class="ui-li-thumb ui-li-aside" />
+        </li>
+</script>
+       
+<div data-role="page" id="tweetPage">
+    <div data-role="header" 
+         data-position="fixed">
+         <h1>Tweet Search</h1></div>
+            
+    <div data-role="content"
+         id="myContent">         
+         <div class="ui-grid-a"  data-type="horizontal">
+            <div class="ui-block-a" style="width: 75%;"><input type="search" id="tweetSearch"  data-mini="true"></div>
+            <div class="ui-block-b" style="width: 25%;"><button id="tweetSearchButton" data-mini="true">Go</button></div>
+        </div>
+        <ul data-role="listview" id="myTweetList" data-inset="true"></ul>
+    </div>
+            
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-icon="info" class="ui-btn-active ui-state-persist" href="#tweetPage">Tweet</a></li>
+                <li><a data-icon="grid" href="#flickrPage">Flickr</a></li>
+                <li><a data-icon="plus" href="#weatherPage">Weather</a></li>
+            </ul>
+        </div>
+    </div>     
+</div>
+
+<div data-role="page" id="flickrPage">
+    <div data-role="header" 
+         data-position="fixed">
+         <h1>Flickr Search</h1></div>
+            
+    <div data-role="content"
+         id="myContent">         
+         <div class="ui-grid-a"  data-type="horizontal">
+            <div class="ui-block-a" style="width: 75%;"><input type="search" id="flickrSearch"  data-mini="true"></div>
+            <div class="ui-block-b" style="width: 25%;"><button id="flickrSearchButton" data-mini="true">Go</button></div>
+        </div>
+        <div id="myFlickrList"></div>
+    </div>
+            
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-icon="info" href="#tweetPage">Tweet</a></li>
+                <li><a data-icon="grid" class="ui-btn-active ui-state-persist" href="#flickrPage">Flickr</a></li>
+                <li><a data-icon="plus" href="#weatherPage">Weather</a></li>
+            </ul>
+        </div>
+    </div>       
+</div>
+
+<div data-role="page" id="weatherPage">
+    <div data-role="header" 
+         data-position="fixed">
+         <h1>Weather Search</h1></div>
+            
+    <div data-role="content"
+         id="myContent">         
+         <div class="ui-grid-a"  data-type="horizontal">
+            <div class="ui-block-a" style="width: 75%;"><input type="search" id="weatherSearch"  data-mini="true"></div>
+            <div class="ui-block-b" style="width: 25%;"><button id="weatherSearchButton" data-mini="true">Go</button></div>
+        </div>
+        <ul data-role="listview" id="myWeatherList" data-inset="true"></ul>
+    </div>
+            
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-icon="info" href="#tweetPage">Tweet</a></li>
+                <li><a data-icon="grid" href="#flickrPage">Flickr</a></li>
+                <li><a data-icon="plus" class="ui-btn-active ui-state-persist" href="#weatherPage">Weather</a></li>
+            </ul>
+        </div>
+    </div>       
+</div>
+
+<script src="app.js"></script>
+            
+</body>​
+</html>
